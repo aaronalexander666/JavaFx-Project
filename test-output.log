@@ -1,0 +1,2 @@
+The JAVA_HOME environment variable is not defined correctly, so Apache Maven cannot be started.
+JAVA_HOME is set to "/usr/lib/jvm/java-23-openjdk-amd64", but "$JAVA_HOME/bin/java" does not exist.
