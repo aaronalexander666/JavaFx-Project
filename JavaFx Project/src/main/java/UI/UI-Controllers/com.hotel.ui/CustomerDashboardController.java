@@ -1,0 +1,90 @@
+﻿        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cts.javafxdemo.CustomerDashboardController">
+   <children>
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label fx:id="welcomeLabel" text="Welcome, Customer">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+               </children>
+            </HBox>
+
+            <Separator />
+
+            <!-- Booking Form -->
+            <TitledPane animated="false" text="Make New Booking">
+               <content>
+                  <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" minWidth="100.0" />
+                      <ColumnConstraints minWidth="200.0" prefWidth="200.0" />
+                      <ColumnConstraints minWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Check-in Date:" GridPane.rowIndex="0" />
+                        <DatePicker fx:id="checkInPicker" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Check-out Date:" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="checkOutPicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Select Room:" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="roomComboBox" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Button mnemonicParsing="false" onAction="#handleSearchRooms" text="Search Available" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                        <Label text="Total Amount:" GridPane.rowIndex="3" />
+                        <Label fx:id="totalLabel" text="\\$0.00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+
+                        <Button mnemonicParsing="false" onAction="#handleBookRoom" text="Book Now" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+
+            <!-- My Bookings Table -->
+            <TitledPane animated="false" text="My Bookings" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox spacing="10.0">
+                     <children>
+                        <TableView fx:id="bookingsTable" prefHeight="200.0" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="colRoom" prefWidth="150.0" text="Room" />
+                            <TableColumn fx:id="colDates" prefWidth="200.0" text="Dates" />
+                            <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+                            <TableColumn fx:id="colTotal" prefWidth="100.0" text="Total" />
+                          </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#handleCancelBooking" text="Cancel Selected Booking" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
+

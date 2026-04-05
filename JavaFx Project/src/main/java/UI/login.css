@@ -1,0 +1,58 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-base: #16213e;
+    -fx-accent: #00d4ff;
+}
+
+.title-label {
+    -fx-font-size: 36px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-font-size: 20px;
+    -fx-text-fill: #e0e0e0;
+}
+
+.field-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.input-field {
+    -fx-background-color: #0f3460;
+    -fx-text-fill: white;
+    -fx-border-color: #00d4ff;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.input-field:focused {
+    -fx-border-color: #ffcc00;
+}
+
+.primary-button {
+    -fx-background-color: #00d4ff;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-padding: 12 30;
+    -fx-background-radius: 8;
+}
+
+.primary-button:hover {
+    -fx-background-color: #00b8d4;
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #00d4ff;
+    -fx-border-color: #00d4ff;
+    -fx-border-radius: 8;
+}
+
+.error-text {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-size: 14px;
+}

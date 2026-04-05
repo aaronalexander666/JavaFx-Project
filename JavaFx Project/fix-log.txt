@@ -1,0 +1,13 @@
+﻿================================================================================
+ERROR TELEMETRY | 2026-04-03 23:17:48
+================================================================================
+Exception Type:    System.Management.Automation.RuntimeException
+Message:           JDK 23 not found. Please install JDK 23 or set JAVA_HOME.
+Stack Trace:
+
+--------------------------------------------------------------------------------
+PowerShell Version: 5.1.19041.6456
+Execution Policy:   RemoteSigned
+Working Directory:  C:\Users\aaron\OneDrive\Documents\Hotel\JavaFx_Project\JavaFx Project
+================================================================================
+
