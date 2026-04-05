@@ -1,8 +1,8 @@
-module your.app.name {
+module com.cts.javafxdemo {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql; // Crucial for MySQL
+    requires java.sql;
 
-    opens your.package.name to javafx.fxml;
-    exports your.package.name;
+    opens com.cts.javafxdemo to javafx.fxml;
+    exports com.cts.javafxdemo;
 }

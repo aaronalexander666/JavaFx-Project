@@ -98,4 +98,12 @@ public class UserDAO {
     private void handleError(String context, SQLException e) {
         System.err.println("UserDAO " + context + " Error: " + e.getMessage());
     }
+    public boolean authenticate(String username, String password, String userType) {
+        User user = login(username, password, userType);
+        return user != null;
+    }
+
+    public User getUserByUsername(String username, String userType) {
+        return null;
+    }
 }

@@ -51,4 +51,3 @@ public class CustomersListController {
     public String getNote() { return note; }
     public Boolean getActive() { return active; }
 }
-}

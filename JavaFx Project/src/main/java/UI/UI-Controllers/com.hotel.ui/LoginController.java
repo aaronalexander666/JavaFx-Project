@@ -1,4 +1,4 @@
-﻿package com.hotel.app; // This must match the folder path
+package com.hotel.app; // This must match the folder path
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

@@ -1,4 +1,4 @@
-Package com.cts.javafxdemo;
+package com.cts.javafxdemo;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

@@ -107,4 +107,15 @@ public class BookingDAO {
         b.calculateBookingLogic();
         return b;
     }
+    public ObservableList<Booking> getCustomerBookings(int customerId) {
+        return getAllBookings();
+    }
+
+    public boolean updateBookingStatus(int bookingId, String status) {
+        return false;
+    }
+
+    public boolean cancelBooking(int bookingId) {
+        return updateBookingStatus(bookingId, "Cancelled");
+    }
 }

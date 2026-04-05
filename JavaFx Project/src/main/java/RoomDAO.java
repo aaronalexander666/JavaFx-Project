@@ -1,4 +1,4 @@
-Package com.cts.javafxdemo;
+package com.cts.javafxdemo;
 
 import com.cts.javafxdemo.models.Room;
 import javafx.collections.FXCollections;
