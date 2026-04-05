@@ -1,1 +1,0 @@
-﻿supabase-pastword =VB94p1cFzl9mfXo6
