@@ -30,8 +30,7 @@ public class NavigationService {
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
-            // Future is thick: apply global theme mapping here
-            // scene.getStylesheets().add(NavigationService.class.getResource(FXML_PATH + "styles.css").toExternalForm());
+            applyGlobalStyles(scene);
 
             primaryStage.setScene(scene);
             primaryStage.setTitle(title);
@@ -90,6 +89,13 @@ public class NavigationService {
             throw new RuntimeException("FXML file not found: " + fxmlFile);
         }
         return new FXMLLoader(location);
+    }
+
+    private static void applyGlobalStyles(Scene scene) {
+        var stylesheet = NavigationService.class.getResource("/css/global.css");
+        if (stylesheet != null) {
+            scene.getStylesheets().add(stylesheet.toExternalForm());
+        }
     }
 
     private static void handleError(String context, Exception e) {

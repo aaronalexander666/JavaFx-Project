@@ -29,8 +29,8 @@ public class Main extends Application {
 
             Scene scene = new Scene(root);
 
-            // Future is thick: Map global styles here
-            // scene.getStylesheets().add(getClass().getResource("styles/global.css").toExternalForm());
+            // Apply shared global theme
+            scene.getStylesheets().add(getClass().getResource("/css/global.css").toExternalForm());
 
             primaryStage.setTitle("Hotel Management System - 2026 Edition");
             primaryStage.setScene(scene);
