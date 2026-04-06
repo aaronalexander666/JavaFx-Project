@@ -68,6 +68,9 @@ app.properties
 *.class
 *.classpath
 
+### Distribution ###
+dist/
+
 ### Windows ###
 Thumbs.db
 Desktop.ini

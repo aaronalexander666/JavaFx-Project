@@ -14,7 +14,7 @@
         <javafx.version>23.0.1</javafx.version>
         <junit.version>5.10.1</junit.version>
         <mockito.version>5.2.0</mockito.version>
-        <main.class>com.demo.Main</main.class>
+        <main.class>com.cts.javafxdemo.Main</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -91,11 +91,48 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <includeScope>runtime</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <name>HotelApp</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>HotelApp</vendor>
+                    <destination>${project.build.directory}/dist</destination>
+                    <runtimeImage>${project.build.directory}/image</runtimeImage>
+                    <module>com.cts.javafxdemo/com.cts.javafxdemo.Main</module>
+                    <javaOptions>
+                        <javaOption>-Dconfig.location=config</javaOption>
+                    </javaOptions>
+                    <winDirChooser>true</winDirChooser>
+                    <winMenu>true</winMenu>
+                    <winShortcut>true</winShortcut>
                 </configuration>
             </plugin>
         </plugins>
