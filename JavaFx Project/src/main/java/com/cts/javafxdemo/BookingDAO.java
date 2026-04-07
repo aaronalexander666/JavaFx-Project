@@ -8,8 +8,6 @@ import java.time.LocalDate;
 
 public class BookingDAO {
 
-    private final DatabaseConnection dbConnection = new DatabaseConnection();
-
     /**
      * Creates a new booking.
      * Uses a single transaction to ensure Room and Booking stay in sync.
@@ -23,7 +21,7 @@ public class BookingDAO {
 
         String reserveRoom = "UPDATE tblroom SET status = 'Reserved' WHERE room_id = ? AND status = 'Available'";
 
-        try (Connection conn = dbConnection.getConnection()) {
+        try (Connection conn = DatabaseConnection.openConnection()) {
             conn.setAutoCommit(false); // Begin Transaction
 
             try (PreparedStatement roomPs = conn.prepareStatement(reserveRoom);
@@ -73,7 +71,7 @@ public class BookingDAO {
                 "INNER JOIN tblroom r ON b.room_id = r.room_id " +
                 "ORDER BY b.booking_date DESC";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 

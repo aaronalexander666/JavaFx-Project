@@ -48,6 +48,24 @@ public class DatabaseConnection {
             throw e;
         }
     }
+
+    /**
+     * Static factory method to get a database connection without deprecation warnings.
+     * Recommended for new code in DAO classes.
+     */
+    public static Connection openConnection() throws SQLException {
+        try {
+            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            if (conn.isValid(1)) {
+                return conn;
+            } else {
+                throw new SQLException("Connection established but not valid.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Database Access Error: " + e.getMessage());
+            throw e;
+        }
+    }
     /**
      * Helper to test the connection during application startup.
      */

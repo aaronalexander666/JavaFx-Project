@@ -9,8 +9,6 @@ import java.sql.*;
  */
 public class UserDAO {
 
-    private final DatabaseConnection dbConnection = new DatabaseConnection();
-
     /**
      * Authenticates and retrieves the full User index.
      * Returning a User object instead of a boolean enables 'thick' session management.
@@ -21,7 +19,7 @@ public class UserDAO {
 
         String sql = "SELECT * FROM " + tableName + " WHERE username = ? AND password = ?";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, username);
@@ -57,7 +55,7 @@ public class UserDAO {
         String sql = "INSERT INTO tblcustomer (username, password, full_name, email, phone, address) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, user);
@@ -82,7 +80,7 @@ public class UserDAO {
         String tableName = "customer".equalsIgnoreCase(userType) ? "tblcustomer" : "tblstaff";
         String sql = "SELECT 1 FROM " + tableName + " WHERE username = ?";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, username);

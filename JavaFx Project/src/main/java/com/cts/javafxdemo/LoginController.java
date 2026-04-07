@@ -2,7 +2,6 @@ package com.cts.javafxdemo;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import com.cts.javafxdemo.models.User;
 
 public class LoginController {
 

@@ -22,7 +22,6 @@ public class CustomerDashboardController {
     @FXML private Button btnSearchRooms, btnBookRoom, btnCancelBooking;
 
     private final BookingService bookingService = new BookingService();
-    private final RoomDAO roomDAO = new RoomDAO();
     private final ObservableList<Booking> bookings = FXCollections.observableArrayList();
     private final ObservableList<String> availableRooms = FXCollections.observableArrayList();
 
@@ -64,7 +63,7 @@ public class CustomerDashboardController {
         if (checkIn != null && checkOut != null && selectedRoom != null) {
             // Parse room ID from selected room string
             int roomId = Integer.parseInt(selectedRoom.split(" - ")[0]);
-            double total = bookingService.calculateTotal(roomId, checkIn, checkOut);
+            bookingService.calculateTotal(roomId, checkIn, checkOut);
 
             if (bookingService.createBooking(1, roomId, checkIn, checkOut)) { // Default customer ID
                 loadCustomerBookings();

@@ -11,8 +11,6 @@ import java.time.LocalDate;
  */
 public class RoomDAO {
 
-    private final DatabaseConnection dbConnection = new DatabaseConnection();
-
     /**
      * Retrieves all available rooms for a given date range.
      */
@@ -29,7 +27,7 @@ public class RoomDAO {
                 "    OR (b.check_in_date <= ? AND b.check_out_date >= ?))" +
                 ")";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             java.sql.Date checkInDate = java.sql.Date.valueOf(checkIn);
@@ -67,7 +65,7 @@ public class RoomDAO {
     public Room getRoomById(int roomId) {
         String sql = "SELECT * FROM tblroom WHERE room_id = ?";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, roomId);
@@ -95,7 +93,7 @@ public class RoomDAO {
     public boolean updateRoomStatus(int roomId, String status) {
         String sql = "UPDATE tblroom SET status = ? WHERE room_id = ?";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, status);
@@ -113,7 +111,7 @@ public class RoomDAO {
         ObservableList<Room> rooms = FXCollections.observableArrayList();
         String sql = "SELECT * FROM tblroom";
 
-        try (Connection conn = dbConnection.getConnection();
+        try (Connection conn = DatabaseConnection.openConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
