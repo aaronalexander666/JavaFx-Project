@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Hotel System (Java 25)",
+            "request": "launch",
+            "mainClass": "com.hotel.app.Main",
+            "projectName": "hotel-management-system",
+            "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-25.0.2\\lib\" --add-modules javafx.controls,javafx.fxml",
+            "env": {
+                "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\Jdk-25.0.2_10",
+                "DB_URL": "jdbc:mysql://localhost:3306/hotel_db",
+                "DB_PASSWORD": "${env:DB_PASSWORD}"
+            }
+        },
+        {
+            "type": "java",
+            "name": "MyBigMapperCLI (Java 25)",
+            "request": "launch",
+            "mainClass": "com.hotel.app.cli.MyBigMapperCLI",
+            "projectName": "hotel-management-system",
+            "env": {
+                "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\Jdk-25.0.2_10"
+            }
+        }
+    ]
+}

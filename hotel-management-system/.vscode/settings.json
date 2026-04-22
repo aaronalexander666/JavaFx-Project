@@ -1,0 +1,18 @@
+{
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\Jdk-25.0.2_10",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Program Files\\Eclipse Adoptium\\Jdk-25.0.2_10",
+            "default": true
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "java.maven.downloadSources": true,
+    "java.project.sourcePaths": ["src/main/java", "src/test/java"],
+    "java.project.resourcePaths": ["src/main/resources"],
+    "java.project.outputPath": "target/classes",
+    "files.encoding": "utf8",
+    "java.settings.url": ".settings/org.eclipse.jdt.core.prefs"
+}
